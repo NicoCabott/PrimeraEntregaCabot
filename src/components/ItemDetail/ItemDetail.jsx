@@ -1,14 +1,14 @@
-import React from "react";
-import Button from 'react-bootstrap/Button';
+import React, { useState } from "react"
 import Card from 'react-bootstrap/Card';
 import Contador from "../Contador";
 
 export default function ItemDetail({ productDetail }) {
   // Lo recibo de ItemDetailContainer.
   const{name, description, img, stock, precio} = productDetail
+  const [carrito, setCarrito] = useState()
   
-  const onAdd = () => {
-    console.log("Compraste");
+  const agregarCarrito = () => {
+    alert("Agregaste al carrito");
   }
   
 
@@ -22,7 +22,7 @@ export default function ItemDetail({ productDetail }) {
           <Card.Text>{description}</Card.Text>
           <Card.Text>Precio: ${precio}</Card.Text>
           <Card.Text>Stock: {stock}</Card.Text>
-          <Contador stock={stock} initial={1} onAdd={onAdd} />
+          <Contador stock={stock} initial={1} agregarCarrito={agregarCarrito} />
         </Card.Body>
       </Card>
       

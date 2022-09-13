@@ -23,9 +23,7 @@ export default function Producto({item, color}) {
     }
   }
 
-  const onAdd = () => {
-    console.log(contador);
-  }
+
 
 
 

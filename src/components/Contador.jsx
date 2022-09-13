@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
-export default function Contador({initial, stock, onAdd}) {
+export default function Contador({ initial, stock, agregarCarrito }) {
   const [count, setCount] = useState(initial)
+  
 
     const sumar = () => {
         if (count < stock) {
@@ -10,7 +11,7 @@ export default function Contador({initial, stock, onAdd}) {
     }
 
   const restar= () => {
-    if (count > stock) {
+    if (count > 0) {
         setCount(count - 1)
     }
   }
@@ -21,7 +22,8 @@ export default function Contador({initial, stock, onAdd}) {
                 <span className="btn btn-light">{count}</span>
                 <button className="btn btn-danger" onClick={restar}>-</button>
             </div>
-            <button className="btn btn-primary mx-3" onClick={onAdd}>Comprar</button>
+        <button className="btn btn-primary mx-3" 
+          onClick={agregarCarrito}>Comprar</button>
         </div>
         
 

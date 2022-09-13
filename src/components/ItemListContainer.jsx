@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ItemList from "./ItemList";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { data } from "../mocks/mockData";
+import ItemList from "./ItemList";
 
 export default function ItemListContainer() {
   const [loading, setLoading] = useState(false);

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import ItemDetail from "./ItemDetail";
-import { data } from "../../mocks/mockData";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { data } from "../../mocks/mockData";
+import ItemDetail from "./ItemDetail";
 
 
 
