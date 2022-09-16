@@ -1,15 +1,31 @@
 import React, { useState } from "react"
 import Card from 'react-bootstrap/Card';
-import Contador from "../Contador";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+import Contador from "../Contador"
 
 export default function ItemDetail({ productDetail }) {
   // Lo recibo de ItemDetailContainer.
-  const{name, description, img, stock, precio} = productDetail
-  const [carrito, setCarrito] = useState()
+  const [count, setCount] = useState(1)
+  const [compra, setCompra] = useState(false)
+  const{name, description, img, stock, precio, id} = productDetail
+  const navegar = useNavigate()
+  const {addItem} = useCart()
   
-  const agregarCarrito = () => {
-    alert("Agregaste al carrito");
+  const onAdd = () => {
+    let purchase = {
+      id,
+      name,
+      precio,
+      stock,
+      img,
+      quantity: count
+    }
+    setCompra(true)
+    addItem(purchase)
   }
+
+
   
 
 
@@ -22,7 +38,12 @@ export default function ItemDetail({ productDetail }) {
           <Card.Text>{description}</Card.Text>
           <Card.Text>Precio: ${precio}</Card.Text>
           <Card.Text>Stock: {stock}</Card.Text>
-          <Contador stock={stock} initial={1} agregarCarrito={agregarCarrito} />
+          { !compra
+            ? <Contador stock={stock} initial={1} onAdd={onAdd} count={count} setCount={setCount} />
+          : <div>
+              <button className="btn btn-info" onClick={() => navegar("/cart")}>ir al carrito</button>
+              <button className="btn btn-warning" onClick={() => navegar("/")}>seguir comprando</button>
+          </div>}
         </Card.Body>
       </Card>
       

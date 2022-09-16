@@ -1,9 +1,7 @@
 import React, { useState } from "react"
 
-export default function Contador({ initial, stock, agregarCarrito }) {
-  const [count, setCount] = useState(initial)
+export default function Contador({ initial, stock, onAdd, count, setCount}) {
   
-
     const sumar = () => {
         if (count < stock) {
             setCount(count + 1)
@@ -23,7 +21,7 @@ export default function Contador({ initial, stock, agregarCarrito }) {
                 <button className="btn btn-danger" onClick={restar}>-</button>
             </div>
         <button className="btn btn-primary mx-3" 
-          onClick={agregarCarrito}>Comprar</button>
+          onClick={onAdd}>Comprar</button>
         </div>
         
 
