@@ -16,7 +16,7 @@ export default function NavBar() {
                             <Nav.Link href="/categoria/camiseta">Camisetas</Nav.Link>
                             <Nav.Link href="/categoria/pantalon ">Pantalones</Nav.Link>
                             <Nav.Link href="/categoria/zapatilla">Zapatillas</Nav.Link>
-                            <Nav.Link href="#link"><CartWidget /></Nav.Link>
+                            <Nav.Link href="/cart"><CartWidget /></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
